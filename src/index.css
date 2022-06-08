@@ -5,9 +5,35 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+body::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+body::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+body::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(45deg, #1b6b1a, #16151c);
+	-webkit-box-shadow: rgba(0,0,0,.12) 0 3px 13px 1px;
+}
+
+.carousel .control-dots .dot {
+  background: #00B83B !important;
+  box-shadow: none !important;
+  width: 12px !important;
+  height: 12px !important;
 }
