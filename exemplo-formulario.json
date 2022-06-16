@@ -1,0 +1,45 @@
+// POST - /inscricao
+
+{
+	"teamData": {
+		"nome": "Fly Carrots2223",
+		"dataInscricao": "24/05/2022"
+	},
+	"participantsData": [
+		{
+			"nome": "Emanoel Loreto1",
+			"cpf": "04189122033",
+			"email": "emanoelloreto@hotmail.com",
+			"telefone": "51996418280",
+			"instituicao": "AMF"
+		},
+		{
+			"nome": "Emanoel Loreto2",
+			"cpf": "04189122033",
+			"email": "emanoelloreto@hotmail.com",
+			"telefone": "51996418280",
+			"instituicao": "AMF"
+		},
+		{
+			"nome": "Emanoel Loreto3",
+			"cpf": "04189122033",
+			"email": "emanoelloreto@hotmail.com",
+			"telefone": "51996418280",
+			"instituicao": "AMF"
+		},
+		{
+			"nome": "Emanoel Loreto4",
+			"cpf": "04189122033",
+			"email": "emanoelloreto@hotmail.com",
+			"telefone": "51996418280",
+			"instituicao": "AMF"
+		},
+		{
+			"nome": "Emanoel Loreto5",
+			"cpf": "04189122033",
+			"email": "emanoelloreto@hotmail.com",
+			"telefone": "51996418280",
+			"instituicao": "AMF"
+		}
+	]
+}

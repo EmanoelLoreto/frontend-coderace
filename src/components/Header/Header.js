@@ -13,7 +13,7 @@ import logoCoderace from '../../assets/logo-coderace.png'
 
 const Header = () => {
   // const history = createBrowserHistory()
-  const [transparentHeader, setTransparentHeader] = useState(false)
+  const [transparentHeader, setTransparentHeader] = useState(true)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -23,7 +23,7 @@ const Header = () => {
   }, [])
 
   return (
-    <HeaderMenu transparentHeader={ transparentHeader }>
+    <HeaderMenu transparentHeader={ transparentHeader } id="header-coderace">
       <img
         id="logo-coderace"
         src={ logoCoderace }
@@ -33,25 +33,25 @@ const Header = () => {
       <NavMenus>
         <Ul>
           <Li>
-            <Link href="/" selected>Code Race</Link>
+            <Link to="/" selected>Code Race</Link>
           </Li>
           <Li>
-            <Link href="/">Galeria</Link>
+            <Link to="/galeria">Galeria</Link>
           </Li>
           <Li>
-            <Link href="/">Organização</Link>
+            <Link to="/organizacao">Organização</Link>
           </Li>
           <Li>
-            <Link href="/">Patrocine</Link>
+            <Link to="/patrocino">Patrocine</Link>
           </Li>
           <Li>
-            <Link href="/">FAQ</Link>
+            <Link to="/faq">FAQ</Link>
           </Li>
           <Li>
-            <Link href="/">Contato</Link>
+            <Link to="/contato">Contato</Link>
           </Li>
           <Li>
-            <LinkInscricao href="/">Inscrições</LinkInscricao>
+            <LinkInscricao to="/inscricao">Inscrições</LinkInscricao>
           </Li>
         </Ul>
       </NavMenus>

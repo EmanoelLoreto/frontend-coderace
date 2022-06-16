@@ -1,6 +1,8 @@
 /* eslint-disable global-require */
 import styled from 'styled-components'
 
+import { Link as RouterLink } from 'react-router-dom'
+
 export const HeaderMenu = styled.div`
   display: flex;
   flex-direction: row;
@@ -11,7 +13,7 @@ export const HeaderMenu = styled.div`
   -webkit-tap-highlight-color: transparent;
   width: -webkit-fill-available;
   position: fixed;
-  transition: all 0.3s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
   z-index: 2;
 `
 
@@ -31,7 +33,7 @@ export const Li = styled.li`
   margin: 0px 5px;
 `
 
-export const Link = styled.a`
+export const Link = styled(RouterLink)`
   font-family: "Raleway", sans-serif;
   text-decoration: none;
   outline: none;
@@ -62,7 +64,7 @@ export const Link = styled.a`
   }
 `
 
-export const LinkInscricao = styled.a`
+export const LinkInscricao = styled(RouterLink)`
   color: #fff;
   background: #00B83B;
   padding: 7px 22px;

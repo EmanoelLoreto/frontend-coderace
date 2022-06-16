@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 
-import HomeScreen from '../screens/HomeScreen'
+const HomeScreen = lazy(() => import('../screens/HomeScreen'))
+const SubscriptionScreen = lazy(() => import('../screens/SubscriptionScreen'))
 
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" exact element={ <HomeScreen /> } />
+        <Route path="*" exact element={ <HomeScreen /> } />
+        <Route path="/inscricao" exact element={ <SubscriptionScreen /> } />
       </Routes>
     </BrowserRouter>
   )

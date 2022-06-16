@@ -1,9 +1,12 @@
-import React from 'react'
-// import Router from './routes/routes'
-import HomeScreen from './screens/HomeScreen/HomeScreen'
+import React, { Suspense } from 'react'
+import Router from './routes/routes'
+
+import SuspenseScreen from './screens/SuspenseScreen'
 
 export default function App() {
   return (
-    <HomeScreen />
+    <Suspense fallback={ <SuspenseScreen /> }>
+      <Router />
+    </Suspense>
   )
 }
