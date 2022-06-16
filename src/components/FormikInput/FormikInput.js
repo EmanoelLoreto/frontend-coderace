@@ -15,7 +15,7 @@ import {
 import InputMask from '../MaskedInput'
 
 const FormikInput = ({
-  initialValues, type, style, onSubmitSubscription
+  initialValues, type, style, onSubmitSubscription, errors
 }) => {
   // const onSubmit = useCallback((values) => {
   //   console.log(values)
@@ -56,8 +56,8 @@ const FormikInput = ({
               onBlur={ formik.handleBlur }
               placeholder="Nome"
             />
-            {formik.errors.teamName && formik.touched.teamName && (
-              <LabelError className="label-error">{ formik.errors.teamName }</LabelError>
+            {errors?.teamName && formik.touched.teamName && (
+              <LabelError className="label-error">{ errors?.teamName }</LabelError>
             )}
           </ContainerInputAndLabel>
 
@@ -72,14 +72,14 @@ const FormikInput = ({
               placeholder="Data inscrição"
               disabled
             />
-            {formik.errors.dataInscricao && formik.touched.dataInscricao && (
-            <LabelError className="label-error">{ formik.errors.dataInscricao }</LabelError>
+            {errors?.dataInscricao && formik.touched.dataInscricao && (
+            <LabelError className="label-error">{ errors?.dataInscricao }</LabelError>
             )}
           </ContainerInputAndLabel>
 
-          <button onClick={ formik.handleSubmit } type="button" className="btn btn-primary mr-1">
+          {/* <button onClick={ formik.handleSubmit } type="button" className="btn btn-primary mr-1">
             Buy Tickets
-          </button>
+          </button> */}
         </>
       ) : '' }
 
@@ -96,8 +96,8 @@ const FormikInput = ({
               onBlur={ formik.handleBlur }
               placeholder="Nome e sobrenome"
             />
-            {formik.errors.nome && formik.touched.nome && (
-            <LabelError className="label-error">{ formik.errors.nome }</LabelError>
+            {errors?.nome && formik.touched.nome && (
+            <LabelError className="label-error">{ errors?.nome }</LabelError>
             )}
           </ContainerInputAndLabel>
 
@@ -111,8 +111,8 @@ const FormikInput = ({
               onBlur={ formik.handleBlur }
               placeholder="CPF"
             />
-            {formik.errors.cpf && formik.touched.cpf && (
-            <LabelError className="label-error">{ formik.errors.cpf }</LabelError>
+            {errors?.cpf && formik.touched.cpf && (
+            <LabelError className="label-error">{ errors?.cpf }</LabelError>
             )}
           </ContainerInputAndLabel>
 
@@ -126,8 +126,8 @@ const FormikInput = ({
               onBlur={ formik.handleBlur }
               placeholder="E-mail"
             />
-            {formik.errors.email && formik.touched.email && (
-            <LabelError className="label-error">{ formik.errors.email }</LabelError>
+            {errors?.email && formik.touched.email && (
+            <LabelError className="label-error">{ errors?.email }</LabelError>
             )}
           </ContainerInputAndLabel>
 
@@ -142,8 +142,8 @@ const FormikInput = ({
               placeholder="(00) 00000-0000"
               guide
             />
-            {formik.errors.telefone && formik.touched.telefone && (
-              <LabelError className="label-error">{ formik.errors.telefone }</LabelError>
+            {errors?.telefone && formik.touched.telefone && (
+              <LabelError className="label-error">{ errors?.telefone }</LabelError>
             )}
           </ContainerInputAndLabel>
 
@@ -157,8 +157,8 @@ const FormikInput = ({
               onBlur={ formik.handleBlur }
               placeholder="Instituição de ensino"
             />
-            {formik.errors.instituicao && formik.touched.instituicao && (
-            <LabelError className="label-error">{ formik.errors.instituicao }</LabelError>
+            {errors?.instituicao && formik.touched.instituicao && (
+            <LabelError className="label-error">{ errors?.instituicao }</LabelError>
             )}
           </ContainerInputAndLabel>
         </>
