@@ -1,52 +1,75 @@
 {
   "env": {
     "browser": true,
+    "commonjs": true,
     "es2021": true
   },
-  "extends": [
-    "airbnb",
-    "prettier",
-    "prettier/react",
-    "plugin:prettier/recommended",
-    "eslint-config-prettier"
-  ],
-  "parser": "babel-eslint",
+  "extends": ["plugin:react/recommended", "airbnb"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest"
+  },
+  "plugins": ["react"],
   "rules": {
-    "space-in-brackets": [
-      "error",
-      "always",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "warn",
+    "jsx-a11y/label-has-for": "warn",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "class-methods-use-this": 0,
+    "comma-dangle": "off",
+    "no-param-reassign": 0,
+    "no-use-before-define": 0,
+    "padded-blocks": 0,
+    "quote-props": 0,
+    "quotes": [
+      2,
+      "single",
       {
-        "singleValue": false,
-        "objectsInArrays": false,
-        "arraysInArrays": false,
-        "arraysInObjects": false,
-        "objectsInObjects": false,
-        "propertyName": false
+        "avoidEscape": true
       }
     ],
-    "import/no-unresolved": "off",
-    "react/jsx-filename-extension": [
+    "semi": ["error", "never"],
+    "template-curly-spacing": [2, "always"],
+    "react/forbid-prop-types": 0,
+    "react/jsx-curly-spacing": [2, "always"],
+    "react/jsx-filename-extension": 0,
+    "react/no-unused-prop-types": 0,
+    "import/prefer-default-export": 0,
+    "import/first": 0,
+    "react/no-array-index-key": 0,
+    "react/prefer-stateless-function": 0,
+    "import/no-extraneous-dependencies": 0,
+    "react/destructuring-assignment": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react-hooks/exhaustive-deps": 0,
+    "import/order": 0,
+    "linebreak-style": 0,
+    "react/jsx-no-duplicate-props": [
+      2,
+      {
+        "ignoreCase": false
+      }
+    ],
+    "max-len": [
       1,
       {
-        "extensions": [".js", ".jsx"]
+        "code": 150
       }
     ],
-    "prettier/prettier": [
-      "error",
-      {
-        "trailingComma": "es5",
-        "singleQuote": true,
-        "printWidth": 100
-      }
-    ]
-  },
-  "plugins": ["prettier"],
-  "settings": {
-    "import/resolver": {
-      "babel-plugin-root-import": {
-        "rootPathPrefix": "@",
-        "rootPathSuffix": "src"
-      }
-    }
+    "no-underscore-dangle": "off",
+    "react-native/no-inline-styles": "off",
+    "react/require-default-props": "warn",
+    "react/prop-types": "off",
+    "react/function-component-definition": "off",
+    "prettier/prettier": "off",
+    "arrow-parens": "off",
+    "no-tabs": "off",
+    "consistent-return": "off",
+    "function-paren-newline": "off",
+    "react/jsx-props-no-spreading": "off",
+    "global-require": "off",
+    "import/no-dynamic-require": "off"
   }
 }

@@ -5,7 +5,7 @@ import SuspenseScreen from './screens/SuspenseScreen'
 
 export default function App() {
   return (
-    <Suspense fallback={<SuspenseScreen />}>
+    <Suspense fallback={ <SuspenseScreen /> }>
       <Router />
     </Suspense>
   )
