@@ -4,7 +4,7 @@
   "editor.renderWhitespace": "all",
   "editor.formatOnSave": true,
   "prettier.requireConfig": true,
-  "editor.defaultFormatter": null,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   }
