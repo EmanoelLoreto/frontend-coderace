@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import { createBrowserHistory } from 'history'
+import { useLocation } from 'react-router-dom'
 
 import {
   HeaderMenu,
@@ -12,13 +12,13 @@ import {
 import logoCoderace from '../../assets/logo-coderace.png'
 
 const Header = () => {
-  // const history = createBrowserHistory()
+  const location = useLocation()
+
   const [transparentHeader, setTransparentHeader] = useState(true)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', () => setTransparentHeader(window.pageYOffset < 100)
-      )
+      window.addEventListener('scroll', () => setTransparentHeader(window.pageYOffset < (location.pathname === '/inscricao' ? 30 : 100)))
     }
   }, [])
 

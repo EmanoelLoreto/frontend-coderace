@@ -14,7 +14,7 @@ export const HeaderMenu = styled.div`
   width: -webkit-fill-available;
   position: fixed;
   transition: all 0.5s ease-in-out 0s;
-  z-index: 2;
+  z-index: 3;
 `
 
 export const NavMenus = styled.nav`

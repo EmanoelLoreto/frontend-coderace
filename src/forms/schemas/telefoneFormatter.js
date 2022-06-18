@@ -1,5 +1,4 @@
 const telefoneFormatter = number => {
-  console.log(number)
   if (!number) return null
 
   let regexp = ''
