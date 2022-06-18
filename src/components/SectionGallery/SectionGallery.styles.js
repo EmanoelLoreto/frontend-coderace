@@ -8,6 +8,7 @@ export const Section = styled.section`
   flex-direction: column;
   padding: 0px 5vw;
   background-color: #f6f7fd;
+  scroll-margin-top: 70px;
 `
 
 export const TitleGallery = styled.h1`

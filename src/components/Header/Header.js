@@ -8,22 +8,29 @@ import {
   Li,
   Link,
   LinkInscricao,
+  LinkA,
 } from './Header.styles'
 import logoCoderace from '../../assets/logo-coderace.png'
 
-const Header = () => {
+const Header = ({ transparent = true }) => {
   const location = useLocation()
 
   const [transparentHeader, setTransparentHeader] = useState(true)
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', () => setTransparentHeader(window.pageYOffset < (location.pathname === '/inscricao' ? 30 : 100)))
+    }
+
+    if (location.hash) {
+      window.location.href = location.hash
     }
   }, [])
 
   return (
-    <HeaderMenu transparentHeader={ transparentHeader } id="header-coderace">
+    <HeaderMenu transparentHeader={ transparentHeader && transparent } id="header-coderace">
       <img
         id="logo-coderace"
         src={ logoCoderace }
@@ -33,22 +40,22 @@ const Header = () => {
       <NavMenus>
         <Ul>
           <Li>
-            <Link to="/" selected>Code Race</Link>
+            <Link to="/" selected={ location.pathname === '/' }>Code Race</Link>
           </Li>
           <Li>
-            <Link to="/galeria">Galeria</Link>
+            <LinkA href="/#galeria">Galeria</LinkA>
           </Li>
           <Li>
-            <Link to="/organizacao">Organização</Link>
+            <LinkA href="/#faq">FAQ</LinkA>
           </Li>
           <Li>
-            <Link to="/patrocino">Patrocine</Link>
+            <LinkA href="/#contato">Contato</LinkA>
           </Li>
           <Li>
-            <Link to="/faq">FAQ</Link>
+            <Link to="/patrocinio" selected={ location.pathname === '/patrocinio' }>Patrocine</Link>
           </Li>
           <Li>
-            <Link to="/contato">Contato</Link>
+            <Link to="/organizacao" selected={ location.pathname === '/organizacao' }>Organização</Link>
           </Li>
           <Li>
             <LinkInscricao to="/inscricao">Inscrições</LinkInscricao>

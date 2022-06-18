@@ -16,7 +16,7 @@ import {
 } from './SectionContact.styles'
 
 const SectionFAQ = () => (
-  <Section>
+  <Section id="contato">
     <TitleContact>Contato</TitleContact>
     <DescriptionContact>Entre em contato conosco.</DescriptionContact>
 

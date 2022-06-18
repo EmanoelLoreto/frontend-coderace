@@ -1,16 +1,22 @@
 import styled from 'styled-components'
 
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+`
+
 export const Section = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #fff;
+  background: #fff;
   padding: 0px 5vw;
-  scroll-margin-top: 70px;
+  margin-top: 7vw;
 `
 
-export const TitleContact = styled.h1`
+export const TitleSponsor = styled.h1`
   font-family: "Raleway", sans-serif;
   font-size: 2rem;
   text-transform: uppercase;
@@ -19,18 +25,41 @@ export const TitleContact = styled.h1`
   margin-bottom: 10px;
 `
 
-export const DescriptionContact = styled.span`
+export const DescriptionSponsor = styled.span`
   text-align: center;
-  margin: 0 0 15px 0;
+  margin: 0;
   font-size: 18px;
   font-weight: 500;
   color: #9195a2;
 `
 
+export const HrVerde = styled.hr`
+  width: 10vw;
+  border: none;
+  width: 10vw;
+  border-bottom: 4px solid #00B83B;
+`
+
+export const ContainerSponsor = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-flow: wrap;
+
+  span {
+    margin-top: 50px;
+    text-align: justify;
+  }
+
+  h3 {
+    margin-top: 30px;
+  }
+`
+
 export const ContainerFormContact = styled.form`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   width: 60vw;
@@ -90,23 +119,31 @@ export const InputMessage = styled.textarea`
 `
 
 export const inputNome = {
-  gridArea: '1 / 1 / 2 / 2',
+  gridArea: '1 / 1 / 2 / 3',
 }
 
-export const inputEmail = {
-  gridArea: '1 / 2 / 2 / 3',
+export const inputResponsavel = {
+  gridArea: '1 / 3 / 2 / 5',
 }
 
-export const inputAssunto = {
+export const inputTelefone = {
   gridArea: '2 / 1 / 3 / 3',
 }
 
+export const inputEmail = {
+  gridArea: '2 / 3 / 3 / 5',
+}
+
+export const inputAssunto = {
+  gridArea: '3 / 1 / 4 / 5',
+}
+
 export const inputMensagem = {
-  gridArea: '3 / 1 / 5 / 3',
+  gridArea: '4 / 1 / 6 / 5',
 }
 
 export const ButtonSendContact = styled.button`
-  grid-area: 5 / 1 / 6 / 3;
+  grid-area: 6 / 2 / 7 / 4;
   background: #00B83B;
   padding: 10px 40px;
   color: #fff;
@@ -127,11 +164,4 @@ export const ButtonSendContact = styled.button`
     background: #54a3ff;
     box-shadow: 0 0 0 0.1rem rgb(0 123 255 / 25%);
   }
-`
-
-export const HrVerde = styled.hr`
-  width: 10vw;
-  border: none;
-  width: 10vw;
-  border-bottom: 4px solid #00B83B;
 `

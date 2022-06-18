@@ -36,6 +36,7 @@ import {
   ButtonCreateTeam,
   AvatarAndName,
 } from './SubscriptionContainer.styles'
+import { isEmpty } from 'lodash'
 
 const SubscriptionContainer = () => {
   const [heightBackgroundImage, setHeightBackgroundImage] = useState('')
@@ -43,8 +44,11 @@ const SubscriptionContainer = () => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', () => setHeightBackgroundImage(document.getElementById('section-home').getBoundingClientRect().height)
-      )
+      window.addEventListener('scroll', () => setHeightBackgroundImage(
+        document.getElementById('section-home')
+          ? document.getElementById('section-home').getBoundingClientRect().height
+          : ''
+      ))
     }
   }, [])
 
@@ -104,12 +108,25 @@ const SubscriptionContainer = () => {
     [],
   )
 
+  const hasErrorPlayer = useCallback((errors, touched, index) => (
+    !isEmpty(errors) && !isEmpty(touched)
+    && !isEmpty(errors?.participantsData[index]) && !isEmpty(touched?.participantsData[index])
+    && (
+      (errors.participantsData[index].nome && touched.participantsData[index].nome)
+      || (errors.participantsData[index].cpf && touched.participantsData[index].cpf)
+      || (errors.participantsData[index].email && touched.participantsData[index].email)
+      || (errors.participantsData[index].telefone && touched.participantsData[index].telefone)
+    )
+  ), [])
+
   return (
     <Container>
       <Header />
       <SectionHome id="section-home" height={ heightBackgroundImage }>
         <Formik onSubmit={ onSubmitSubscription } validationSchema={ registerFormSchema } initialValues={ initialValues }>
-          {({ values, setValues }) => (
+          {({
+            values, setValues, errors, touched
+          }) => (
             <Form style={ { zIndex: 2 } }>
               <ContainerForm>
                 <h1>Monte seu time</h1>
@@ -132,6 +149,8 @@ const SubscriptionContainer = () => {
                   {map(values.participantsData, (participant, index) => (
                     <AvatarAndName
                       key={ participant + index }
+                      selected={ selectedParticipantIndex(values) === (index + 1) }
+                      error={ hasErrorPlayer(errors, touched, index) }
                     >
                       <IconParticipant
                         src={ require(`../../assets/avatars/avatar-${ index }.png`) }
@@ -143,19 +162,19 @@ const SubscriptionContainer = () => {
                     </AvatarAndName>
                   ))}
                   {values.participantsData.length < 5 && (
-                    <IconAddParticipant
-                      src={ require('../../assets/botao-adicionar.png') }
-                      alt="botao-add"
-                      onClick={ () => addParticipant(values, setValues) }
-                      style={ { width: '36px', height: '36px' } }
-                    />
+                  <IconAddParticipant
+                    src={ require('../../assets/botao-adicionar.png') }
+                    alt="botao-add"
+                    onClick={ () => addParticipant(values, setValues) }
+                    style={ { width: '36px', height: '36px' } }
+                  />
                   )}
                   {values.participantsData.length > 1 && (
-                    <IconAddParticipant
-                      src={ require('../../assets/botao-remover.png') }
-                      alt="botao-remove"
-                      onClick={ () => removeParticipant(values, setValues) }
-                    />
+                  <IconAddParticipant
+                    src={ require('../../assets/botao-remover.png') }
+                    alt="botao-remove"
+                    onClick={ () => removeParticipant(values, setValues) }
+                  />
                   )}
                 </HeaderParticipants>
                 <FieldArray name="participantsData">

@@ -17,7 +17,7 @@ const SectionGallery = () => {
   ]
 
   return (
-    <Section>
+    <Section id="galeria">
       <TitleGallery>Galeria</TitleGallery>
       <DescriptionGallery>Fotos das nossas cinco edições</DescriptionGallery>
 

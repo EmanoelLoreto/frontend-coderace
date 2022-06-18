@@ -44,23 +44,24 @@ export const Link = styled(RouterLink)`
   border-bottom: ${ ({ selected }) => (selected ? '3px solid #00B83B' : '0px solid #00B83B') };
   transition: all 0.3s ease-in-out 0s;
 
-  :before {
-    content: "";
-    // position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #00B83B;
-    visibility: hidden;
-    transition: all 0.3s ease-in-out 0s;
+  :hover {
+    color: #fff;
   }
+`
+
+export const LinkA = styled.a`
+  font-family: "Raleway", sans-serif;
+  text-decoration: none;
+  outline: none;
+  padding: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: ${ ({ selected }) => (selected ? '#fff' : 'rgba(202, 206, 221, 0.8)') };
+  border-bottom: ${ ({ selected }) => (selected ? '3px solid #00B83B' : '0px solid #00B83B') };
+  transition: all 0.3s ease-in-out 0s;
 
   :hover {
-    :before {
-      visibility: visible;
-      width: 100%;
-    }
+    color: #fff;
   }
 `
 

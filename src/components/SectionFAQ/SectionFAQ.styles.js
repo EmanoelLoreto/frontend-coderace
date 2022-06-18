@@ -7,6 +7,7 @@ export const Section = styled.section`
   flex-direction: column;
   background-color: #f6f7fd;
   padding: 0px 5vw;
+  scroll-margin-top: 70px;
 `
 
 export const TitleFAQ = styled.h1`

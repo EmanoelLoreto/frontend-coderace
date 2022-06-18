@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import styled from 'styled-components'
 import backgroundHome from '../../assets/background-home.jpg'
 
@@ -36,6 +37,7 @@ export const ContainerForm = styled.div`
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   padding: 20px;
+  min-width: 1060px;
 
   background-color: #fff;
   width: 80vw;
@@ -164,6 +166,8 @@ export const AvatarAndName = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.5s;
+  color: ${ ({ selected, error }) => (selected && !error ? '#54a3ff' : error ? 'red' : '') };
 
   h4 {
     margin: 5px 0px 0px 0px

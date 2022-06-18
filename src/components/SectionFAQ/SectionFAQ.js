@@ -33,7 +33,7 @@ const SectionFAQ = () => {
   ]
 
   return (
-    <Section>
+    <Section id="faq">
       <TitleFAQ>F.A.Q</TitleFAQ>
 
       <HrVerde />
