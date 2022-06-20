@@ -10,11 +10,14 @@ export const Section = styled.section`
   background-color: #f6f7fd;
   scroll-margin-top: 70px;
 
+  .carousel-root {
+    margin-bottom: 50px;
+  }
+
   .carousel-slider {
     width: 40% !important;
     border-radius: 50px;
     background: #f7f7f7;
-    margin-bottom: 10px;
     box-shadow:  20px 20px 60px #d2d2d2,
                 -20px -20px 60px #ffffff;
   }
