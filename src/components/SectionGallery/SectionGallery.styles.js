@@ -14,6 +14,7 @@ export const Section = styled.section`
     width: 40% !important;
     border-radius: 50px;
     background: #f7f7f7;
+    margin-bottom: 10px;
     box-shadow:  20px 20px 60px #d2d2d2,
                 -20px -20px 60px #ffffff;
   }
