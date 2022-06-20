@@ -50,7 +50,7 @@ const Header = ({ transparent = true }) => {
   return (
     windowDimensions.width < 950 ? (
       <>
-        <OverlayMenu open={ isOpenedMenu } />
+        <OverlayMenu open={ isOpenedMenu } onClick={ () => setIsOpenedMenu(false) } />
         <SideBarMobile open={ isOpenedMenu }>
           <NavMenus>
             <Ul open={ isOpenedMenu }>
@@ -71,7 +71,6 @@ const Header = ({ transparent = true }) => {
                   href="/#faq"
                   selectedSub={ location.hash === '#faq' }
                   onClick={ () => setIsOpenedMenu(false) }
-
                 >
                   FAQ
                 </LinkA>

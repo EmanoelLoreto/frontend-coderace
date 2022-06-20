@@ -78,7 +78,7 @@ export const FirstPlaceAward = styled.b`
 export const MoneyPrize = styled.h2`
   font-size: 2.4rem;
   text-align: center;
-  margin: 0;
+  margin: 0 0 5px 0;
 `
 
 export const CardSubscription = styled.div`

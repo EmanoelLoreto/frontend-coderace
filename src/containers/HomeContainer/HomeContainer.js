@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 import Header from '../../components/Header'
 import SectionAbout from '../../components/SectionAbout'
@@ -20,41 +20,70 @@ import {
   LinkProtocolo,
 } from './HomeContainer.styles'
 
-const HomeContainer = () => (
-  <Container>
-    <Header />
-    <SectionHome>
-      <ContainerTitles>
-        <TitleCodeRace>
-          CODE <GreenSpan>RACE</GreenSpan>
-        </TitleCodeRace>
-        <SubTitleCodeRace>CAMPEONATO DE PROGRAMAÇÃO</SubTitleCodeRace>
+const HomeContainer = () => {
+  const [heightBackgroundImage, setHeightBackgroundImage] = useState('')
 
-        <LinkProtocolo
-          href="http://coderace.com.br/desafio_cr_2021.pdf"
-          target="_blank"
-        >
-          Acesse o protocolo do desafio da edição de 2022 aqui!
-        </LinkProtocolo>
-      </ContainerTitles>
-    </SectionHome>
+  const setDimensions = useCallback(
+    () => {
+      setHeightBackgroundImage(
+        document.getElementById('section-home')
+          ? document.getElementById('section-home').getBoundingClientRect().height
+          : ''
+      )
+    },
+    [document, window],
+  )
 
-    <SectionAbout />
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', () => {
+        setDimensions()
+      }, true)
+    }
+  }, [])
 
-    <SectionAward />
+  useEffect(() => {
+    setTimeout(() => {
+      setDimensions()
+    }, 100)
+  }, [])
 
-    <SectionGallery />
+  return (
+    <Container>
+      <Header />
+      <SectionHome height={ heightBackgroundImage }>
+        <ContainerTitles>
+          <TitleCodeRace>
+            CODE <GreenSpan>RACE</GreenSpan>
+          </TitleCodeRace>
+          <SubTitleCodeRace>CAMPEONATO DE PROGRAMAÇÃO</SubTitleCodeRace>
 
-    <SectionPartners />
+          <LinkProtocolo
+            href="http://coderace.com.br/desafio_cr_2021.pdf"
+            target="_blank"
+          >
+            Acesse o protocolo do desafio da edição de 2022 aqui!
+          </LinkProtocolo>
+        </ContainerTitles>
+      </SectionHome>
 
-    <SectionFAQ />
+      <SectionAbout />
 
-    <SectionContact />
+      <SectionAward />
 
-    <SectionFooter />
+      <SectionGallery />
 
-    <Footer />
-  </Container>
-)
+      <SectionPartners />
+
+      <SectionFAQ />
+
+      <SectionContact />
+
+      <SectionFooter />
+
+      <Footer />
+    </Container>
+  )
+}
 
 export default HomeContainer

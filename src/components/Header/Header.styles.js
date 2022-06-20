@@ -47,7 +47,7 @@ export const Li = styled.li`
       transparent: 90%,
       #00B83B 90%,
       #00B83B 100%,
-    )
+    );
 
   @media(max-width: 950px) {
     margin: 10px 5px;
@@ -69,12 +69,6 @@ export const Link = styled(RouterLink)`
   border-bottom: ${ ({ selected }) => (selected ? '3px solid #00B83B' : '0px solid #00B83B') };
   transition: all 0.3s ease-in-out 0s;
   white-space: nowrap;
-
-  background-repeat: no-repeat;
-  background-size: 0% 100%;
-  background-position-x: right;
-
-  transition: background-size 300ms;
 
   :hover {
     background-size: 100% 100%;
