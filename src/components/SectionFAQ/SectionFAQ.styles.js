@@ -8,6 +8,10 @@ export const Section = styled.section`
   background-color: #f6f7fd;
   padding: 0px 5vw;
   scroll-margin-top: 70px;
+  
+  @media(max-width: 950px) {
+    padding: 0px 10vw;
+  }
 `
 
 export const TitleFAQ = styled.h1`
@@ -22,13 +26,13 @@ export const TitleFAQ = styled.h1`
 export const ContainerFAQ = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 3vw 0;
 `
 
 export const HrVerde = styled.hr`
   width: 10vw;
   border: none;
-  width: 10vw;
   border-bottom: 4px solid #00B83B;
 `
 

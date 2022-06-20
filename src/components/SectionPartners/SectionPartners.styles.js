@@ -24,6 +24,11 @@ export const ContainerPartners = styled.div`
   flex-flow: wrap;
   justify-content: center;
   margin-bottom: 2vw;
+
+  @media(max-width: 950px) {
+    flex-direction: column;
+    align-content: center;
+  }
 `
 
 export const CardPartner = styled.div`
@@ -31,15 +36,19 @@ export const CardPartner = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px;
-  width: 15vw;
+  width: 20vw;
   min-height: 35vh;
-  box-shadow: 0 10px 25px 0 rgb(6 12 34 / 10%);
   cursor: pointer;
   margin: 10px;
 
+  border-radius: 50px;
+  background: #f7f7f7;
+  box-shadow:  20px 20px 60px #d2d2d2,
+              -20px -20px 60px #ffffff;
+
   img {
     transition: all 0.3s ease-in-out 0s;
-    width: inherit;
+    width: 70%;
     cursor: pointer;
   }
 
@@ -47,6 +56,11 @@ export const CardPartner = styled.div`
     img {
       width: 16vw;
     }
+  }
+
+  @media(max-width: 950px) {
+    width: 80%;
+    min-height: 35vh;
   }
 `
 

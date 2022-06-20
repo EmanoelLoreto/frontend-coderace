@@ -31,8 +31,7 @@ const SectionAbout = () => (
       </TextAbout>
     </ContainerAbout>
     <FrameVideo
-      width="560"
-      height="315"
+      width="100%"
       src="https://www.youtube.com/embed/uen3jvi-WWc"
       title="CODE RACE VI"
       frameBorder="0"

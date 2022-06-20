@@ -12,8 +12,8 @@ export const SectionHome = styled.section`
   justify-content: center;
   align-items: center;
   background-image: url(${ backgroundHome });
-  background-attachment: fixed;
-  height: 100vh;
+  background-position-x: center;
+  min-height: 100vh;
 
   :before {
     content: "";
@@ -32,17 +32,22 @@ export const ContainerTitles = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 15vh;
+  text-align: center;
+  padding: 15px;
   z-index: 1;
 `
 
 export const TitleCodeRace = styled.h1`
   font-family: "Raleway", sans-serif;
   color: #fff;
-  font-size: 56px;
+  font-size: calc(3.5vw + 3.5vh);
   font-weight: 600;
   text-transform: uppercase;
   margin: 5px 0px;
+`
+
+export const SubTitleCodeRace = styled(TitleCodeRace)`
+  font-size: calc(2vw + 2vh);
 `
 
 export const GreenSpan = styled.span`
@@ -57,7 +62,7 @@ export const LinkProtocolo = styled.a`
   font-family: "Raleway", sans-serif;
   color: #00B83B;
   font-weight: 400;
-  font-size: 2rem;
+  font-size: calc(1.5vw + 1.5vh);
   text-decoration: none;
   margin-top: 10vh;
 

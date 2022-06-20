@@ -21,7 +21,7 @@ const Footer = () => (
       >
         Política de privacidade
       </LinkGreen>{' '}
-      |{' '}
+      <b>|</b>{' '}
       <LinkGreen
         href="https://www.coderace.com.br/politica-de-cancelamento.html"
         target="_blank"

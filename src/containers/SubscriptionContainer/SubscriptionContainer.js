@@ -40,16 +40,48 @@ import { isEmpty } from 'lodash'
 
 const SubscriptionContainer = () => {
   const [heightBackgroundImage, setHeightBackgroundImage] = useState('')
+  const [heightHeaderMenu, setHeightHeaderMenu] = useState('')
   const [selectedParticipant, setSelectedParticipant] = useState(1)
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', () => setHeightBackgroundImage(
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  })
+
+  const setDimensions = useCallback(
+    () => {
+      setHeightBackgroundImage(
         document.getElementById('section-home')
           ? document.getElementById('section-home').getBoundingClientRect().height
           : ''
-      ))
+      )
+
+      setHeightHeaderMenu(
+        document.getElementById('header-coderace')
+          ? document.getElementById('header-coderace').getBoundingClientRect().height
+          : ''
+      )
+
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      })
+    },
+    [document, window],
+  )
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', () => {
+        setDimensions()
+      }, true)
     }
+  }, [])
+
+  useEffect(() => {
+    setTimeout(() => {
+      setDimensions()
+    }, 100)
   }, [])
 
   const initialValues = {
@@ -128,7 +160,7 @@ const SubscriptionContainer = () => {
             values, setValues, errors, touched
           }) => (
             <Form style={ { zIndex: 2 } }>
-              <ContainerForm>
+              <ContainerForm height={ heightHeaderMenu }>
                 <h1>Monte seu time</h1>
                 <ContainerTeam>
 
@@ -143,7 +175,9 @@ const SubscriptionContainer = () => {
                     <Field name="dataInscricao" type="text" component={ InputFormik } disabled />
                   </ContainerInputAndLabel>
 
-                  <ButtonCreateTeam type="submit" value="Criar time" />
+                  {windowDimensions.width > 950 && (
+                    <ButtonCreateTeam type="submit" value="Criar time" />
+                  )}
                 </ContainerTeam>
                 <HeaderParticipants>
                   {map(values.participantsData, (participant, index) => (
@@ -243,6 +277,9 @@ const SubscriptionContainer = () => {
                     </ContainerParticipants>
                   ))}
                 </FieldArray>
+                {windowDimensions.width <= 950 && (
+                <ButtonCreateTeam type="submit" value="Criar time" />
+                )}
               </ContainerForm>
             </Form>
           )}

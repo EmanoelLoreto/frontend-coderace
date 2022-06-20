@@ -1,5 +1,5 @@
 /* eslint-disable global-require */
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 export const Section = styled.section`
   display: flex;
@@ -10,14 +10,36 @@ export const Section = styled.section`
   padding: 0px 5vw;
 `
 
+const pulseAnimation = keyframes`
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+`
+
 export const CardAward = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 5px;
-  box-shadow: 0 10px 25px 0 rgb(6 12 34 / 10%);
   padding: 1vw;
   margin: 3vw;
+  
+  border-radius: 50px;
+  background: #f7f7f7;
+  box-shadow:  20px 20px 60px #d2d2d2,
+              -20px -20px 60px #ffffff;
+
+  img {
+    animation: ${ pulseAnimation } 3s ease-in-out infinite both;
+  }
 `
 
 export const TitleAward = styled.h1`
@@ -64,9 +86,13 @@ export const CardSubscription = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 5px;
-  box-shadow: 0 10px 25px 0 rgb(6 12 34 / 10%);
-  padding: 1vw;
+  padding: 2vw;
   margin: 3vw;
+
+  border-radius: 50px;
+  background: #f7f7f7;
+  box-shadow:  20px 20px 60px #d2d2d2,
+              -20px -20px 60px #ffffff;
 `
 
 export const TitleSubscription = styled.h1`
@@ -84,11 +110,16 @@ export const UlRules = styled.ul`
   align-items: center;
   list-style: none;
   padding: 0 4vw;
+
+  @media(max-width: 950px) {
+    padding: 0 7vw;
+    text-align: center;
+  }
 `
 
 export const LiRules = styled.li`
   margin: 8px 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
 
   :before {
     font-family: FontAwesome;
@@ -98,7 +129,7 @@ export const LiRules = styled.li`
     color: #d91f26;
     transform: scale(1, 1);
     position: absolute;
-    margin-top: 2px;
+    margin-top: -1px;
     color: #00B83B;
   }
 `

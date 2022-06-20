@@ -12,4 +12,9 @@ export const BackgroundSuspense = styled.div`
 export const LogoCoderace = styled.img`
   width: 50vw;
   height: 35vh;
+
+  @media(max-width: 950px) {
+    width: 80%;
+    height: auto;
+  }
 `

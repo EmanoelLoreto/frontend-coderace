@@ -9,6 +9,34 @@ export const Section = styled.section`
   padding: 0px 5vw;
   background-color: #f6f7fd;
   scroll-margin-top: 70px;
+
+  .carousel-slider {
+    width: 40% !important;
+    border-radius: 50px;
+    background: #f7f7f7;
+    box-shadow:  20px 20px 60px #d2d2d2,
+                -20px -20px 60px #ffffff;
+  }
+
+  .carousel-status {
+    margin-right: 20px;
+  }
+
+  @media(max-width: 950px) {
+    .carousel-slider {
+      flex-direction: column-reverse;
+      display: flex;
+      width: 100% !important;
+
+      .control-dots {
+        position: initial;
+      }
+    }
+    
+    .thumbs-wrapper {
+      display: none;
+    }
+  }
 `
 
 export const TitleGallery = styled.h1`

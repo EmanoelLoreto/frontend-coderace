@@ -27,7 +27,6 @@ const SectionGallery = () => {
         autoPlay
         centerSlidePercentage
         dynamicHeight
-        width="40%"
         useKeyboardArrows
       >
         {map(arrayPhotosGallery, (numberPhoto) => (

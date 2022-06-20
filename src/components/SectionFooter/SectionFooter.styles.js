@@ -7,10 +7,19 @@ export const Section = styled.section`
   flex-direction: column;
   background: #000;
   padding: 60px 120px 60px 120px;
+
+  @media(max-width: 950px) {
+    padding: 40px 20px;
+  }
 `
 
 export const ContainerFooterAboutAndContact = styled.div`
   display: flex;
+
+  @media(max-width: 950px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `
 
 export const ContainerFooterAbout = styled.div`
@@ -32,6 +41,11 @@ export const ContainerFooterContact = styled(ContainerFooterAbout)`
 
   & > :nth-child(3) {
     margin-top: 20px;
+  }
+
+  @media(max-width: 950px) {
+    align-items: center;
+    margin-top: 40px;
   }
 `
 

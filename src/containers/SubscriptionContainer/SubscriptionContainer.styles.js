@@ -15,7 +15,6 @@ export const SectionHome = styled.section`
   background-image: url(${ backgroundHome });
   background-attachment: fixed;
   padding-bottom: 25px;
-  height: 100vh;
 
   :before {
     content: "";
@@ -37,19 +36,26 @@ export const ContainerForm = styled.div`
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   padding: 20px;
-  min-width: 1060px;
 
   background-color: #fff;
   width: 80vw;
   border-radius: 20px;
   z-index: 2;
-  margin-top: 10vw;
+  margin-top: ${ ({ height }) => (height ? `${ height + 20 }px` : '') };
+
 
   h1 {
     grid-area: 1 / 1 / 2 / 3;
     margin: 0px 0px 10px 0px;
     align-self: center;
     justify-self: center;
+  }
+
+  @media(max-width: 950px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: ${ ({ height }) => (height ? `${ height + 20 }px` : '') };
   }
 `
 
@@ -83,6 +89,10 @@ export const Input = styled.input`
     outline: 0;
     box-shadow: 0 0 0 0.1rem rgb(0 123 255 / 25%);
   }
+
+  @media(max-width: 950px) {
+    width: 90%;
+  }
 `
 
 export const InputDisabled = styled(Input)`
@@ -92,6 +102,11 @@ export const InputDisabled = styled(Input)`
 export const ContainerInputAndLabel = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media(max-width: 950px) {
+    flex-direction: column !important;
+    margin: 0 !important;
+  }
 `
 
 export const LabelError = styled.span`
@@ -105,6 +120,10 @@ export const ContainerParticipants = styled.div`
 
   display: flex;
   flex-direction: column;
+  
+  @media(max-width: 950px) {
+    width: inherit;
+  }
 `
 
 export const ButtonCreateTeam = styled.input`
@@ -171,5 +190,17 @@ export const AvatarAndName = styled.div`
 
   h4 {
     margin: 5px 0px 0px 0px
+  }
+
+  @media(max-width: 950px) {
+    margin: 20px 0;
+
+    img {
+      width: 11vw;
+    }
+
+    h4 {
+      font-size: 0.8rem;
+    }
   }
 `

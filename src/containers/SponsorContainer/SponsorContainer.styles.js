@@ -14,6 +14,10 @@ export const Section = styled.section`
   background: #fff;
   padding: 0px 5vw;
   margin-top: 7vw;
+
+  @media(max-width: 950px) {
+    margin-top: 20vw;
+  }
 `
 
 export const TitleSponsor = styled.h1`
@@ -64,6 +68,13 @@ export const ContainerFormContact = styled.form`
   grid-row-gap: 0px;
   width: 60vw;
   margin: 10px 0 2vw;
+
+  @media(max-width: 950px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
 `
 
 export const InputContact = styled.input`
@@ -88,6 +99,10 @@ export const InputContact = styled.input`
     border-color: #80bdff;
     outline: 0;
     box-shadow: 0 0 0 0.1rem rgb(0 123 255 / 25%);
+  }
+
+  @media(max-width: 950px) {
+    width: 80%;
   }
 `
 
@@ -115,6 +130,12 @@ export const InputMessage = styled.textarea`
     border-color: #80bdff;
     outline: 0;
     box-shadow: 0 0 0 0.1rem rgb(0 123 255 / 25%);
+  }
+
+  @media(max-width: 950px) {
+    flex: auto;
+    width: 80%;
+    height: 100px;
   }
 `
 
@@ -163,5 +184,11 @@ export const ButtonSendContact = styled.button`
   :hover {
     background: #54a3ff;
     box-shadow: 0 0 0 0.1rem rgb(0 123 255 / 25%);
+  }
+
+  @media(max-width: 950px) {
+    width: 50%;
+    height: auto;
+    margin-bottom: 15px;
   }
 `

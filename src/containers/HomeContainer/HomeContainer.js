@@ -15,6 +15,7 @@ import {
   SectionHome,
   ContainerTitles,
   TitleCodeRace,
+  SubTitleCodeRace,
   GreenSpan,
   LinkProtocolo,
 } from './HomeContainer.styles'
@@ -27,7 +28,7 @@ const HomeContainer = () => (
         <TitleCodeRace>
           CODE <GreenSpan>RACE</GreenSpan>
         </TitleCodeRace>
-        <TitleCodeRace>CAMPEONATO DE PROGRAMAÇÃO</TitleCodeRace>
+        <SubTitleCodeRace>CAMPEONATO DE PROGRAMAÇÃO</SubTitleCodeRace>
 
         <LinkProtocolo
           href="http://coderace.com.br/desafio_cr_2021.pdf"

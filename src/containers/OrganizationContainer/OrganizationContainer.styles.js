@@ -14,6 +14,10 @@ export const Section = styled.section`
   background: #fff;
   padding: 0px 5vw;
   margin-top: 7vw;
+
+  @media(max-width: 950px) {
+    margin-top: 20vw;
+  }
 `
 
 export const TitleOrganization = styled.h1`
@@ -53,6 +57,10 @@ export const CardSpeaker = styled.div`
   margin: 40px;
   transition: all ease-in 0.2s;
 
+  border-radius: 50px;
+  box-shadow:  20px 20px 60px #d2d2d2,
+              -20px -20px 60px #ffffff;
+
   img {
     border-radius: 30px;
   }
@@ -68,7 +76,6 @@ export const InfoSpeaker = styled.div`
   color: #fff;
   font-size: 22px;
   font-weight: 600;
-  margin-bottom: 5px;
   align-items: center;
 
   background: rgba(0,0,0,0.76);
