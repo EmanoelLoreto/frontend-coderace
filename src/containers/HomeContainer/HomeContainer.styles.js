@@ -12,8 +12,7 @@ export const SectionHome = styled.section`
   justify-content: center;
   align-items: center;
   background-image: url(${ backgroundHome });
-  background-position-x: center;
-  min-height: 100vh;
+  background-attachment: fixed;
 
   :before {
     content: "";
@@ -23,6 +22,7 @@ export const SectionHome = styled.section`
     top: 0;
     left: 0;
     right: 0;
+    height: ${ ({ height }) => (height ? `${ height }px` : 'auto') };
     z-index: 1;
   }
 `
