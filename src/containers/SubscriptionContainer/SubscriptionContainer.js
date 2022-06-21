@@ -142,6 +142,7 @@ const SubscriptionContainer = () => {
 
   const hasErrorPlayer = useCallback((errors, touched, index) => (
     !isEmpty(errors) && !isEmpty(touched)
+    && !isEmpty(errors?.participantsData) && !isEmpty(touched?.participantsData)
     && !isEmpty(errors?.participantsData[index]) && !isEmpty(touched?.participantsData[index])
     && (
       (errors.participantsData[index].nome && touched.participantsData[index].nome)
@@ -278,7 +279,7 @@ const SubscriptionContainer = () => {
                   ))}
                 </FieldArray>
                 {windowDimensions.width <= 950 && (
-                <ButtonCreateTeam type="submit" value="Criar time" />
+                  <ButtonCreateTeam type="submit" value="Criar time" />
                 )}
               </ContainerForm>
             </Form>
