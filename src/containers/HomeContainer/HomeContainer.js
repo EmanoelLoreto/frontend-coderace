@@ -45,13 +45,13 @@ const HomeContainer = () => {
   useEffect(() => {
     setTimeout(() => {
       setDimensions()
-    }, 1000)
+    }, 300)
   }, [])
 
   return (
     <Container>
       <Header />
-      <SectionHome height={ heightBackgroundImage }>
+      <SectionHome height={ heightBackgroundImage } id="section-home">
         <ContainerTitles>
           <TitleCodeRace>
             CODE <GreenSpan>RACE</GreenSpan>
