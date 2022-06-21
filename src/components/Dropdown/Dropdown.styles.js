@@ -42,7 +42,7 @@ export const TitleQuestion = styled.h2`
 
 export const AnswerQuestion = styled.span`
   visibility: ${ ({ stateDropdown }) => (stateDropdown ? 'inherit' : 'hidden') };
-  height: ${ ({ stateDropdown }) => (stateDropdown ? '70px' : '0px') };
+  height: ${ ({ stateDropdown }) => (stateDropdown ? '140px' : '0px') };
   transition: height 0.3s;
   cursor: pointer;
 

@@ -187,7 +187,6 @@ export const ButtonSendContact = styled.button`
   }
 
   @media(max-width: 950px) {
-    width: 50%;
     height: auto;
     margin-bottom: 15px;
   }

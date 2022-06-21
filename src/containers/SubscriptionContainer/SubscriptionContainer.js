@@ -81,7 +81,7 @@ const SubscriptionContainer = () => {
   useEffect(() => {
     setTimeout(() => {
       setDimensions()
-    }, 100)
+    }, 300)
   }, [])
 
   const initialValues = {

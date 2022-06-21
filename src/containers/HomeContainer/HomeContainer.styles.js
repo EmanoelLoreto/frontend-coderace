@@ -13,6 +13,8 @@ export const SectionHome = styled.section`
   align-items: center;
   background-image: url(${ backgroundHome });
   background-attachment: fixed;
+  background-position-x: center;
+  min-height: 100vh;
 
   :before {
     content: "";

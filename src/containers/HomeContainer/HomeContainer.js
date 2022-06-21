@@ -45,7 +45,7 @@ const HomeContainer = () => {
   useEffect(() => {
     setTimeout(() => {
       setDimensions()
-    }, 100)
+    }, 300)
   }, [])
 
   return (
