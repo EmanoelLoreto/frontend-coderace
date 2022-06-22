@@ -74,8 +74,7 @@ const SubscriptionContainer = () => {
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', () => {
         setDimensions()
-      }, true
-      )
+      }, true)
     }
   }, [])
 
@@ -142,7 +141,6 @@ const SubscriptionContainer = () => {
         cpf: trimMask(participant.cpf),
         telefone: trimMask(participant.telefone),
       }))
-      console.log(participantsData)
 
       axios
         .post(`${ apiUrl }/inscricao`, {
