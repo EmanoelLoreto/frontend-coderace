@@ -16,7 +16,8 @@ const registerFormSchema = () => Yup.object().shape({
 
       cpf: Yup.string()
         .required('CPF obrigatório')
-        .test('isValidCpfOrCnpj', 'Deve ser um CPF válido', cpfValidator),
+        .test('isValidCpfOrCnpj', 'Deve ser um CPF válido', cpfValidator)
+        .max(14, 'Formato inválido'),
 
       email: Yup.string()
         .required('Email obrigatório')
@@ -24,7 +25,7 @@ const registerFormSchema = () => Yup.object().shape({
 
       telefone: Yup.string()
         .required('Telefone obrigatório')
-        .min(11, 'Telefone inválido')
+        .max(15, 'Formato inválido'),
     })
   )
 })
