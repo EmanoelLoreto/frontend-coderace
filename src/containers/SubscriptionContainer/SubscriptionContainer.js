@@ -93,15 +93,15 @@ const SubscriptionContainer = () => {
   }, [])
 
   const initialValues = {
-    teamName: 'Teste',
+    teamName: '',
     dataInscricao: new Date().toLocaleDateString('pt-BR'),
     participantsData: [
       {
-        nome: 'Emanoel Loreto',
-        cpf: '04189122033',
-        email: 'emanoel@hotmail.com',
-        telefone: '51996418280',
-        instituicao: 'AMF',
+        nome: '',
+        cpf: '',
+        email: '',
+        telefone: '',
+        instituicao: '',
       }
     ]
   }
