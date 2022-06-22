@@ -3,12 +3,17 @@ import React, {
   useEffect,
   useState,
 } from 'react'
+import axios from 'axios'
+
+import { ToastContainer } from 'react-toastify'
+import useToastAlert from '../../components/Alert/useToastAlert'
+import 'react-toastify/dist/ReactToastify.css'
 
 import {
   Formik, FieldArray, ErrorMessage, Form, Field
 } from 'formik'
 
-import { format as FormatCPF } from '@fnando/cpf' // import just one function
+import { format as FormatCPF } from '@fnando/cpf'
 
 import Header from '../../components/Header'
 import SectionAward from '../../components/SectionAward'
@@ -39,14 +44,17 @@ import {
 import { isEmpty } from 'lodash'
 
 const SubscriptionContainer = () => {
+  const { ToastAlert, ToastUpdate } = useToastAlert()
+
   const [heightBackgroundImage, setHeightBackgroundImage] = useState('')
   const [heightHeaderMenu, setHeightHeaderMenu] = useState('')
   const [selectedParticipant, setSelectedParticipant] = useState(1)
-
   const [windowDimensions, setWindowDimensions] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
   })
+
+  const apiUrl = process.env.REACT_APP_API_URL
 
   const setDimensions = useCallback(
     () => {
@@ -85,16 +93,15 @@ const SubscriptionContainer = () => {
   }, [])
 
   const initialValues = {
-    teamName: '',
+    teamName: 'Teste',
     dataInscricao: new Date().toLocaleDateString('pt-BR'),
     participantsData: [
       {
-        id: 1,
-        nome: '',
-        cpf: '',
-        email: '',
-        telefone: '',
-        instituicao: '',
+        nome: 'Emanoel Loreto',
+        cpf: '04189122033',
+        email: 'emanoel@hotmail.com',
+        telefone: '51996418280',
+        instituicao: 'AMF',
       }
     ]
   }
@@ -105,7 +112,6 @@ const SubscriptionContainer = () => {
       participantsData: [
         ...values.participantsData,
         {
-          id: values.participantsData.length + 1,
           nome: '',
           cpf: '',
           email: '',
@@ -127,12 +133,42 @@ const SubscriptionContainer = () => {
     selectedParticipant > values.participantsData.length ? values.participantsData.length : selectedParticipant
   ), [selectedParticipant])
 
-  const onSubmitSubscription = useCallback(
-    (data) => {
-      console.log(data)
-    },
-    [],
-  )
+  const onSubmitSubscription = useCallback((data) => {
+    ToastAlert({
+      id: 'creating-team',
+      message: 'Criando time...',
+      type: 'info',
+    })
+
+    axios.post(`${ apiUrl }/inscricao`, {
+      teamData: {
+        nome: data.teamName,
+        dataInscricao: data.dataInscricao
+      },
+      participantsData: [
+        ...data.participantsData
+      ]
+    }).then(() => {
+      ToastAlert({
+        message: 'Time criado com sucesso!',
+        type: 'info',
+        autoClose: 10000,
+      })
+    }).catch((error) => {
+      ToastUpdate({
+        id: 'creating-team',
+        message: 'Erro ao criar o time.',
+        type: 'error',
+        autoClose: 6000,
+      })
+
+      ToastAlert({
+        message: error?.response?.data?.error?.message ?? 'Erro 404',
+        type: 'warning',
+        autoClose: 6000,
+      })
+    })
+  }, [apiUrl])
 
   const InputFormik = useCallback(({ field, form, ...props }) => <Input { ...field } { ...props } />, [Input])
 
@@ -154,6 +190,7 @@ const SubscriptionContainer = () => {
 
   return (
     <Container>
+      <ToastContainer />
       <Header />
       <SectionHome id="section-home" height={ heightBackgroundImage }>
         <Formik onSubmit={ onSubmitSubscription } validationSchema={ registerFormSchema } initialValues={ initialValues }>
