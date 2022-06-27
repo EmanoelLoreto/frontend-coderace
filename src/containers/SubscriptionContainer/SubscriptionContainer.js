@@ -1,6 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import axios from 'axios'
 
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+
 import { useToastAlert, trimMask } from '../../utils'
 
 import {
@@ -68,10 +71,6 @@ const SubscriptionContainer = () => {
       width: window.innerWidth,
       height: window.innerHeight,
     })
-
-    setTimeout(() => {
-      setDimensions()
-    }, 300)
   }, [document, window])
 
   useEffect(() => {
@@ -79,7 +78,13 @@ const SubscriptionContainer = () => {
       window.addEventListener('resize', () => {
         setDimensions()
       }, true)
+
+      setTimeout(() => {
+        setDimensions()
+      }, 300)
     }
+
+    Aos.init({ duration: 1000 })
   }, [])
 
   const initialValues = {
