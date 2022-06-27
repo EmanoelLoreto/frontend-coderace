@@ -16,7 +16,7 @@ import {
 } from './SectionContact.styles'
 
 const SectionFAQ = () => (
-  <Section id="contato">
+  <Section id="contato" data-aos="fade-up">
     <TitleContact>Contato</TitleContact>
     <DescriptionContact>Entre em contato conosco.</DescriptionContact>
 

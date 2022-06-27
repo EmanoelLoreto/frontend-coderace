@@ -17,7 +17,7 @@ const SectionGallery = () => {
   ]
 
   return (
-    <Section id="galeria">
+    <Section id="galeria" data-aos="fade-up">
       <TitleGallery>Galeria</TitleGallery>
       <DescriptionGallery>Fotos das nossas cinco edições</DescriptionGallery>
 

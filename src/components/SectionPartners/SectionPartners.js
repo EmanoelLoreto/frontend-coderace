@@ -35,7 +35,7 @@ const SectionPartners = () => {
   ]
 
   return (
-    <Section>
+    <Section data-aos="fade-up">
       <TitlePartners>Parceiros</TitlePartners>
 
       <HrVerde />

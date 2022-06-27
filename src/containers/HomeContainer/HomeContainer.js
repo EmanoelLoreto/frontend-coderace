@@ -1,5 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react'
 
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+
 import Header from '../../components/Header'
 import SectionAbout from '../../components/SectionAbout'
 import SectionAward from '../../components/SectionAward'
@@ -40,12 +43,12 @@ const HomeContainer = () => {
         setDimensions()
       }, true)
     }
-  }, [])
 
-  useEffect(() => {
     setTimeout(() => {
       setDimensions()
     }, 300)
+
+    Aos.init({ duration: 1000 })
   }, [])
 
   return (

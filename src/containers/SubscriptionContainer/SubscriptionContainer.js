@@ -68,6 +68,10 @@ const SubscriptionContainer = () => {
       width: window.innerWidth,
       height: window.innerHeight,
     })
+
+    setTimeout(() => {
+      setDimensions()
+    }, 300)
   }, [document, window])
 
   useEffect(() => {
@@ -76,12 +80,6 @@ const SubscriptionContainer = () => {
         setDimensions()
       }, true)
     }
-  }, [])
-
-  useEffect(() => {
-    setTimeout(() => {
-      setDimensions()
-    }, 300)
   }, [])
 
   const initialValues = {

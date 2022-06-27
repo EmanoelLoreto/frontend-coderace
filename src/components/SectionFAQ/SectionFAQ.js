@@ -33,7 +33,7 @@ const SectionFAQ = () => {
   ]
 
   return (
-    <Section id="faq">
+    <Section id="faq" data-aos="fade-up">
       <TitleFAQ>F.A.Q</TitleFAQ>
 
       <HrVerde />

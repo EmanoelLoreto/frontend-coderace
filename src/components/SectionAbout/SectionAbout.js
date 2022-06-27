@@ -10,7 +10,7 @@ import {
 
 const SectionAbout = () => (
   <Section>
-    <ContainerAbout>
+    <ContainerAbout data-aos="fade-up">
       <TitleAbout>Sobre o Code Race</TitleAbout>
       <TextAbout>
         Somos um campeonato de programação que acontece anualmente na
@@ -37,6 +37,7 @@ const SectionAbout = () => (
       frameBorder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
+      data-aos="fade-up"
     />
   </Section>
 )

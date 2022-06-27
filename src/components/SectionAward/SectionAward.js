@@ -19,7 +19,7 @@ import {
 import primeiroLugar from '../../assets/primeiro-lugar.png'
 
 const SectionAward = () => (
-  <Section>
+  <Section data-aos="fade-up">
     <TitleAward>Premiações</TitleAward>
     <DescriptionAward>
       Premiações para VII edição do Code Race
