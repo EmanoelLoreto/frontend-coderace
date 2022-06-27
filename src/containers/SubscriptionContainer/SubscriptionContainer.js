@@ -81,7 +81,7 @@ const SubscriptionContainer = () => {
 
       setTimeout(() => {
         setDimensions()
-      }, 300)
+      }, 600)
     }
 
     Aos.init({ duration: 1000 })
