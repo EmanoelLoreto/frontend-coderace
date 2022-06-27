@@ -71,6 +71,10 @@ const SubscriptionContainer = () => {
       width: window.innerWidth,
       height: window.innerHeight,
     })
+
+    setTimeout(() => {
+      setDimensions()
+    }, 300)
   }, [document, window])
 
   useEffect(() => {
@@ -81,7 +85,7 @@ const SubscriptionContainer = () => {
 
       setTimeout(() => {
         setDimensions()
-      }, 600)
+      }, 300)
     }
 
     Aos.init({ duration: 1000 })
