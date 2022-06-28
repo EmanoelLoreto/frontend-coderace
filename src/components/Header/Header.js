@@ -113,6 +113,7 @@ const Header = ({ transparent = true }) => {
             src={ logoCoderace }
             height="40px"
             alt="Icon"
+            onClick={ () => navigate('/') }
           />
           <input id="menu-toggle" type="checkbox" checked={ isOpenedMenu } onChange={ () => setIsOpenedMenu(!isOpenedMenu) } />
           <label className="menu-button-container" htmlFor="menu-toggle" style={ { zIndex: 10 } }>
