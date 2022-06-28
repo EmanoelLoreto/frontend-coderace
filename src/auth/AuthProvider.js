@@ -6,7 +6,7 @@ import React, {
 } from 'react'
 import axios from 'axios'
 
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { AuthContext } from './AuthContext'
 import { useToastAlert } from '../utils'
 
@@ -14,6 +14,7 @@ export const AuthProvider = ({ children }) => {
   const apiUrl = process.env.REACT_APP_API_URL
 
   const location = useLocation()
+  const navigate = useNavigate()
 
   const [user, setUser] = useState(null)
 
@@ -89,10 +90,8 @@ export const AuthProvider = ({ children }) => {
         setUser(data.user)
         setToken(data.token)
         setUserStorage(JSON.stringify(data.user))
-        return true
+        navigate('/painel-admin')
       }
-
-      return false
     } catch (error) {
       ToastUpdate({
         id: 'login',
@@ -106,8 +105,6 @@ export const AuthProvider = ({ children }) => {
         type: 'error',
         autoClose: 6000,
       })
-
-      return false
     }
   }, [])
 

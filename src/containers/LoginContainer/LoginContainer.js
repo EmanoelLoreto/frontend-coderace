@@ -33,11 +33,7 @@ const LoginContainer = () => {
   const handleSubmit = useCallback(
     (event) => {
       event.preventDefault()
-      const isAuth = auth.signin({ ...form })
-
-      if (isAuth) {
-        navigate('/painel-admin')
-      }
+      auth.signin({ ...form })
     },
     [form],
   )
