@@ -91,6 +91,8 @@ export const AuthProvider = ({ children }) => {
         setUserStorage(JSON.stringify(data.user))
         return true
       }
+
+      return false
     } catch (error) {
       ToastUpdate({
         id: 'login',
