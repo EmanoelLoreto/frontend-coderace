@@ -88,7 +88,7 @@ const SubscriptionContainer = () => {
       }, 300)
     }
 
-    Aos.init({ duration: 1000 })
+    Aos.init({ duration: 1500 })
   }, [document, window])
 
   const initialValues = {
@@ -158,9 +158,11 @@ const SubscriptionContainer = () => {
           participantsData,
         })
         .then(() => {
-          ToastAlert({
+          ToastUpdate({
+            id: 'creating-team',
             message: 'Time criado com sucesso!',
-            type: 'info',
+            type: 'success',
+            autoClose: 6000,
           })
         })
         .catch((error) => {

@@ -16,6 +16,10 @@ export const HeaderDesktop = styled.div`
   position: fixed;
   transition: all 0.5s ease-in-out 0s;
   z-index: 3;
+
+  img {
+    cursor: pointer;
+  }
 `
 
 export const NavMenus = styled.nav`
@@ -170,5 +174,6 @@ export const SideBarMobile = styled.div`
 
   img {
     width: 50%;
+    cursor: pointer;
   }
 `

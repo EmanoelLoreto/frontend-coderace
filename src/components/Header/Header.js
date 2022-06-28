@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
-import { isMobile } from 'react-device-detect'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import './MenuHamburguer.css'
 
@@ -23,6 +22,7 @@ import logoCoderace from '../../assets/logo-coderace.png'
 
 const Header = ({ transparent = true }) => {
   const location = useLocation()
+  const navigate = useNavigate()
 
   const [transparentHeader, setTransparentHeader] = useState(true)
   const [windowDimensions, setWindowDimensions] = useState({
@@ -99,6 +99,7 @@ const Header = ({ transparent = true }) => {
             id="logo-coderace"
             src={ logoCoderace }
             alt="Icon"
+            onClick={ () => navigate('/') }
           />
         </SideBarMobile>
 
@@ -119,13 +120,13 @@ const Header = ({ transparent = true }) => {
       <HeaderDesktop
         id="header-coderace"
         transparentHeader={ transparentHeader && transparent }
-        isMobile={ isMobile }
       >
         <img
           id="logo-coderace"
           src={ logoCoderace }
           height="40px"
           alt="Icon"
+          onClick={ () => navigate('/') }
         />
         <NavMenus>
           <Ul>
