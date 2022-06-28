@@ -127,7 +127,9 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('user', userStorage)
   }, [])
 
-  const AuthContextProps = useMemo(() => ({ user, signin, signout }), [user, signin, signout])
+  const AuthContextProps = useMemo(() => ({
+    user, signin, signout, validateToken
+  }), [user, signin, signout, validateToken])
 
   return (
     <AuthContext.Provider value={ AuthContextProps }>

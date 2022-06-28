@@ -131,6 +131,7 @@ export const LinkInscricao = styled(RouterLink)`
 
 export const LinkInscricaoAdmin = styled(LinkInscricao)`
   background: #54a3ff;
+  padding: 5px 12px;
   border: 3px solid #54a3ff;
 `
 

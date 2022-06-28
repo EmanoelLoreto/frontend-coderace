@@ -49,6 +49,11 @@ const Header = ({ transparent = true }) => {
     if (location.hash) {
       window.location.href = location.hash
     }
+
+    const storageData = localStorage.getItem('user')
+    if (storageData) {
+      auth.validateToken()
+    }
   }, [])
 
   return (
@@ -156,18 +161,20 @@ const Header = ({ transparent = true }) => {
             <Li>
               <LinkInscricao to="/inscricao">Inscrições</LinkInscricao>
             </Li>
-            {auth.user && (
+          </Ul>
+        </NavMenus>
+        {auth.user && (
+          <NavMenus>
+            <Ul>
               <Li>
                 <LinkInscricaoAdmin color="blue" to="/painel-admin">Painel admin</LinkInscricaoAdmin>
               </Li>
-            )}
-            {auth.user && (
               <Li>
                 <LinkInscricaoAdmin color="blue" to="/" onClick={ () => auth.signout() }>Sair</LinkInscricaoAdmin>
               </Li>
-            )}
-          </Ul>
-        </NavMenus>
+            </Ul>
+          </NavMenus>
+        )}
       </HeaderDesktop>
 
     )

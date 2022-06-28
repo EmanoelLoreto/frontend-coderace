@@ -3,11 +3,11 @@ import { createContext } from 'react'
 const AuthContextType = {
   user: {
     email: '',
-    password: '',
     role: '',
   },
   signin: () => { },
   signout: () => { },
+  validateToken: () => { }
 }
 
 export const AuthContext = createContext(AuthContextType)
