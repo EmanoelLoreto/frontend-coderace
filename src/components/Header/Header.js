@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 import './MenuHamburguer.css'
@@ -17,10 +17,14 @@ import {
   HeaderMobile,
   SideBarMobile,
   OverlayMenu,
+  LinkInscricaoAdmin,
 } from './Header.styles'
 import logoCoderace from '../../assets/logo-coderace.png'
+import { AuthContext } from '../../auth/AuthContext'
 
 const Header = ({ transparent = true }) => {
+  const auth = useContext(AuthContext)
+  console.log(auth)
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -151,6 +155,16 @@ const Header = ({ transparent = true }) => {
             <Li>
               <LinkInscricao to="/inscricao">Inscrições</LinkInscricao>
             </Li>
+            {auth.user && (
+              <Li>
+                <LinkInscricaoAdmin color="blue" to="/painel-admin">Painel admin</LinkInscricaoAdmin>
+              </Li>
+            )}
+            {auth.user && (
+              <Li>
+                <LinkInscricaoAdmin color="blue" to="/" onClick={ () => auth.signout() }>Sair</LinkInscricaoAdmin>
+              </Li>
+            )}
           </Ul>
         </NavMenus>
       </HeaderDesktop>

@@ -129,6 +129,11 @@ export const LinkInscricao = styled(RouterLink)`
   }
 `
 
+export const LinkInscricaoAdmin = styled(LinkInscricao)`
+  background: #54a3ff;
+  border: 3px solid #54a3ff;
+`
+
 export const HeaderMobile = styled.div`
   display: flex;
   flex-direction: row;

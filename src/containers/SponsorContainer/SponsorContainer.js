@@ -96,6 +96,7 @@ const SponsorContainer = () => {
     },
     [form, canSendContact],
   )
+
   return (
     <Container>
       <Header transparent={ false } />
