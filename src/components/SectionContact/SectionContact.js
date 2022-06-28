@@ -23,6 +23,8 @@ const SectionFAQ = () => {
   const apiUrl = process.env.REACT_APP_API_URL
   const { ToastAlert, ToastUpdate } = useToastAlert()
 
+  const storageData = localStorage.getItem('authToken')
+
   const [canSendContact, setCanSendContact] = useState(true)
   const [form, setForm] = useState({
     nome: '',
@@ -47,6 +49,10 @@ const SectionFAQ = () => {
         axios
           .post(`${ apiUrl }/contato`, {
             contact: form
+          }, {
+            headers: {
+              Authorization: storageData,
+            }
           })
           .then(() => {
             ToastUpdate({

@@ -31,6 +31,8 @@ const SponsorContainer = () => {
   const apiUrl = process.env.REACT_APP_API_URL
   const { ToastAlert, ToastUpdate } = useToastAlert()
 
+  const storageData = localStorage.getItem('authToken')
+
   const [canSendContact, setCanSendContact] = useState(true)
   const [form, setForm] = useState({
     nomeEmpresa: '',
@@ -57,6 +59,10 @@ const SponsorContainer = () => {
         axios
           .post(`${ apiUrl }/patrocinio`, {
             sponsor: form
+          }, {
+            headers: {
+              Authorization: storageData,
+            }
           })
           .then(() => {
 

@@ -53,6 +53,8 @@ const AdminPanelContainer = () => {
   const location = useLocation()
   const navigate = useNavigate()
 
+  const storageData = localStorage.getItem('authToken')
+
   const [dataTable, setDataTable] = useState([])
   const [rowsTable, setRowsTable] = useState([])
   const [columnsTable, setColumnsTable] = useState([])
@@ -60,7 +62,11 @@ const AdminPanelContainer = () => {
   const getDataTable = useCallback(
     async (path) => {
       try {
-        const { data } = await axios.get(`${ apiUrl }/${ path }`)
+        const { data } = await axios.get(`${ apiUrl }/${ path }`, {
+          headers: {
+            Authorization: storageData,
+          }
+        })
         setDataTable(data)
       } catch {
         setRowsTable([])

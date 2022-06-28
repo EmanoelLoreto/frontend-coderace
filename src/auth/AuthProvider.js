@@ -30,7 +30,13 @@ export const AuthProvider = ({ children }) => {
     })
 
     if (storageData) {
-      const { data } = await axios.post(`${ apiUrl }/login/validate-token`, { token: storageData })
+      const { data } = await axios.post(`${ apiUrl }/login/validate-token`, {
+        token: storageData
+      }, {
+        headers: {
+          Authorization: storageData,
+        }
+      })
       if (data.data.email) {
         ToastUpdate({
           id: 'validating',
