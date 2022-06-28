@@ -61,12 +61,6 @@ const SubscriptionContainer = () => {
         : ''
     )
 
-    setHeightHeaderMenu(
-      document.getElementById('header-coderace')
-        ? document.getElementById('header-coderace').getBoundingClientRect().height
-        : ''
-    )
-
     setWindowDimensions({
       width: window.innerWidth,
       height: window.innerHeight,
@@ -83,13 +77,19 @@ const SubscriptionContainer = () => {
         setDimensions()
       }, true)
 
+      setHeightHeaderMenu(
+        document.getElementById('header-coderace')
+          ? document.getElementById('header-coderace').getBoundingClientRect().height
+          : ''
+      )
+
       setTimeout(() => {
         setDimensions()
       }, 300)
     }
 
     Aos.init({ duration: 1000 })
-  }, [])
+  }, [document, window])
 
   const initialValues = {
     teamName: '',
