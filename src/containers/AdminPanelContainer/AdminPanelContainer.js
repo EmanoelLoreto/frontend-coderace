@@ -24,7 +24,9 @@ import TableBody from '@mui/material/TableBody'
 import TableCell, { tableCellClasses } from '@mui/material/TableCell'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
+
 import map from 'lodash/map'
+import isEmpty from 'lodash/isEmpty'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${ tableCellClasses.head }`]: {
@@ -145,28 +147,32 @@ const AdminPanelContainer = () => {
           </NavMenus>
         </Header>
         <ContainerData>
-          <Table sx={ { minWidth: 700 } } stickyHeader aria-label="table">
-            <TableHead>
-              <TableRow>
-                {map(columnsTable, (columns, index) => (
-                  index !== 0 && (
-                    <StyledTableCell key={ columns } align="center">{ columns }</StyledTableCell>
-                  )
-                ))}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {map(rowsTable, (row, index) => (
-                <StyledTableRow key={ index }>
-                  {map(row, (tableLine, nameLine) => (
-                    nameLine !== '_id' && (
-                      <StyledTableCell key={ tableLine } align="center">{tableLine}</StyledTableCell>
+          { !isEmpty(rowsTable) ? (
+            <Table sx={ { minWidth: 700 } } stickyHeader aria-label="table">
+              <TableHead>
+                <TableRow>
+                  {map(columnsTable, (columns, index) => (
+                    index !== 0 && (
+                      <StyledTableCell key={ columns } align="center">{ columns }</StyledTableCell>
                     )
                   ))}
-                </StyledTableRow>
-              ))}
-            </TableBody>
-          </Table>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {map(rowsTable, (row, index) => (
+                  <StyledTableRow key={ index }>
+                    {map(row, (tableLine, nameLine) => (
+                      nameLine !== '_id' && (
+                        <StyledTableCell key={ tableLine } align="center">{tableLine}</StyledTableCell>
+                      )
+                    ))}
+                  </StyledTableRow>
+                ))}
+              </TableBody>
+            </Table>
+          ) : (
+            <h2>Nenhum dado encontrado</h2>
+          )}
         </ContainerData>
       </ContainerPanel>
     </Container>
