@@ -50,16 +50,16 @@ export const Policys = styled.div`
 
 const pulseAnimation = keyframes`
   0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   50% {
-    -webkit-transform: scale(0.9);
-            transform: scale(0.9);
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
   }
   100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
 `
 
@@ -70,7 +70,9 @@ export const Developed = styled.h5`
   align-items: center;
   white-space: break-spaces;
 
-  animation: ${ pulseAnimation } 3s ease-in-out infinite both;
+  svg {
+    animation: ${ pulseAnimation } 2s ease-in-out infinite both;
+  }
 
   @media(max-width: 950px) {
     margin-top: 30px;
