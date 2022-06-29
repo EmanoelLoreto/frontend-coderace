@@ -87,11 +87,11 @@ const AdminPanelContainer = () => {
         break
 
       case '#contatos':
-        getDataTable('contato')
+        getDataTable('contato/listar')
         break
 
       case '#patrocinios':
-        getDataTable('patrocinio')
+        getDataTable('patrocinio/listar')
         break
 
       case '#usuarios':
@@ -113,6 +113,7 @@ const AdminPanelContainer = () => {
 
   useEffect(() => {
     const columns = []
+    setColumnsTable([])
     rowsTable.forEach((result) => {
       Object.keys(result).forEach((col) => {
         if (!columns.includes(col)) {
@@ -159,17 +160,17 @@ const AdminPanelContainer = () => {
                 <TableRow>
                   {map(columnsTable, (columns, index) => (
                     index !== 0 && (
-                      <StyledTableCell key={ columns } align="center">{ columns }</StyledTableCell>
+                      <StyledTableCell key={ columns + index } align="center">{ columns }</StyledTableCell>
                     )
                   ))}
                 </TableRow>
               </TableHead>
-              <TableBody>
+              <TableBody style={ { backgroundColor: 'aliceblue' } }>
                 {map(rowsTable, (row, index) => (
-                  <StyledTableRow key={ index }>
+                  <StyledTableRow key={ `${ index }table-row` }>
                     {map(row, (tableLine, nameLine) => (
                       nameLine !== '_id' && (
-                        <StyledTableCell key={ tableLine } align="center">{tableLine}</StyledTableCell>
+                        <StyledTableCell key={ tableLine + nameLine } align="center">{tableLine}</StyledTableCell>
                       )
                     ))}
                   </StyledTableRow>

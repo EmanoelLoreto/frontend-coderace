@@ -62,6 +62,13 @@ const SectionFAQ = () => {
               autoClose: 6000,
             })
 
+            setForm({
+              nome: '',
+              email: '',
+              assunto: '',
+              mensagem: ''
+            })
+
             setTimeout(() => {
               setCanSendContact(true)
             }, 120000)

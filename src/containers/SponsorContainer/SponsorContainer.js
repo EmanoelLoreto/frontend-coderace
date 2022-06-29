@@ -65,12 +65,20 @@ const SponsorContainer = () => {
             }
           })
           .then(() => {
-
             ToastUpdate({
               id: 'sponsor',
               message: 'Contato enviado com sucesso!',
               type: 'success',
               autoClose: 6000,
+            })
+
+            setForm({
+              nomeEmpresa: '',
+              responsavel: '',
+              telefone: '',
+              email: '',
+              assunto: '',
+              mensagem: ''
             })
 
             setTimeout(() => {

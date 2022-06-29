@@ -66,6 +66,9 @@ const pulseAnimation = keyframes`
 export const Developed = styled.h5`
   color: #fff;
   margin: 10px 0 30px 0;
+  display: flex;
+  align-items: center;
+  white-space: break-spaces;
 
   animation: ${ pulseAnimation } 3s ease-in-out infinite both;
 

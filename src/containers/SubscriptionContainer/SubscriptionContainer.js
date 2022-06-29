@@ -136,7 +136,7 @@ const SubscriptionContainer = () => {
   )
 
   const onSubmitSubscription = useCallback(
-    (data) => {
+    (data, formik) => {
       ToastAlert({
         id: 'creating-team',
         message: 'Criando time...',
@@ -158,6 +158,7 @@ const SubscriptionContainer = () => {
           participantsData,
         })
         .then(() => {
+          formik.resetForm()
           ToastUpdate({
             id: 'creating-team',
             message: 'Time criado com sucesso!',

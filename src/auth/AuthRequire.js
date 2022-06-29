@@ -7,11 +7,10 @@ import { debounce } from 'lodash'
 export const RequireAuth = ({ children }) => {
   const auth = useContext(AuthContext)
 
-  const redirect = () => useCallback(debounce(() => <LoginScreen />, 300), [])
+  const redirect = () => useCallback(debounce(() => <LoginScreen />, 1000), [])
 
   if (!auth?.user) {
     redirect()
-    return <LoginScreen />
   }
 
   return children

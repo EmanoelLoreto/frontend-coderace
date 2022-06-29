@@ -26,15 +26,18 @@ export const ContainerPanel = styled.div`
   -webkit-backdrop-filter: blur(3.1px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 30px 2vw;
+  transition: all ease 0.3s;
 
+  width: 80vw;
+  min-height: 60vh;
   max-height: 80vh;
-  max-width: 80vw;
 `
 
 export const Header = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 15px;
 `
 
 export const NavMenus = styled.nav``
@@ -42,14 +45,6 @@ export const NavMenus = styled.nav``
 export const Ul = styled.ul`
   display: flex;
   flex-direction: row;
-  
-  @media(max-width: 950px) {
-    transition: all ease-in-out 0.3s;
-    margin-left: ${ ({ open }) => (open ? '0px' : '-200px') };
-    opacity: ${ ({ open }) => (open ? '100%' : '0') };
-    flex-direction: column;
-    padding: 0px;
-  }
 `
 
 export const Li = styled.li`
@@ -65,14 +60,6 @@ export const Li = styled.li`
       #00B83B 90%,
       #00B83B 100%,
     );
-
-  @media(max-width: 950px) {
-    margin: 10px 5px;
-
-    :last-child {
-      margin-top: 25px;
-    }
-  }
 `
 
 export const Link = styled.a`
@@ -89,13 +76,9 @@ export const Link = styled.a`
   :hover {
     color: #fff;
   }
-
-  @media(max-width: 950px) {
-    font-size: 1.2rem;
-  }
 `
 
 export const ContainerData = styled.div`
-  height: 70vh;
+  max-height: 30vw;
   overflow: auto;
 `

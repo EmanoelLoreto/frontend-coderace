@@ -1,5 +1,8 @@
 import React from 'react'
 
+import Icon from '@mdi/react'
+import { mdiHeart } from '@mdi/js'
+
 import {
   LinkGreen,
   FooterContainer,
@@ -31,12 +34,22 @@ const Footer = () => (
     </Policys>
 
     <Developed>
-      Developed by{' '}
+      Feito com {' '}
+      <Icon
+        path={ mdiHeart }
+        title="Heart"
+        size={ 1 }
+        horizontal
+        vertical
+        rotate={ 180 }
+        color="red"
+      />
+      {' '} por
       <LinkGreen
         href="https://www.linkedin.com/in/emanoel-loreto/"
         target="_blank"
       >
-        Emanoel Loreto
+        {' '}Emanoel Loreto.
       </LinkGreen>
     </Developed>
   </FooterContainer>

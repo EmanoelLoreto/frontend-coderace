@@ -24,7 +24,6 @@ import { AuthContext } from '../../auth/AuthContext'
 
 const Header = ({ transparent = true }) => {
   const auth = useContext(AuthContext)
-  console.log(auth)
   const location = useLocation()
   const navigate = useNavigate()
 
