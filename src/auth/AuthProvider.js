@@ -30,29 +30,48 @@ export const AuthProvider = ({ children }) => {
     })
 
     if (storageData) {
-      const { data } = await axios.post(`${ apiUrl }/login/validate-token`, {
-        token: storageData
-      }, {
-        headers: {
-          Authorization: storageData,
-        }
-      })
-      if (data.data.email) {
-        ToastUpdate({
-          id: 'validating',
-          message: 'Usuário validado.',
-          type: 'success',
-          autoClose: 3000,
+      try {
+        const { data } = await axios.post(`${ apiUrl }/login/validate-token`, {
+          token: storageData
+        }, {
+          headers: {
+            Authorization: storageData,
+          }
         })
 
-        setUser(data.data)
-        setUserStorage(JSON.stringify(data.data))
-      } else {
+        if (data.data.email) {
+          ToastUpdate({
+            id: 'validating',
+            message: 'Usuário validado.',
+            type: 'success',
+            autoClose: 2000,
+          })
+
+          setUser(data.data)
+          setUserStorage(JSON.stringify(data.data))
+        } else {
+          ToastUpdate({
+            id: 'validating',
+            message: 'Usuário não encontrado.',
+            type: 'erro',
+            autoClose: 2000,
+          })
+
+          signout()
+        }
+      } catch (error) {
         ToastUpdate({
           id: 'validating',
-          message: 'Usuário não encontrado.',
+          message: 'Erro ao validar o usuário.',
           type: 'erro',
-          autoClose: 3000,
+          autoClose: 2000,
+        })
+
+        ToastUpdate({
+          id: 'validating',
+          message: error.response?.data?.error?.message?.error,
+          type: 'erro',
+          autoClose: 2000,
         })
 
         signout()
@@ -63,9 +82,11 @@ export const AuthProvider = ({ children }) => {
           id: 'validating',
           message: 'Usuário não logado.',
           type: 'warning',
-          autoClose: 3000,
+          autoClose: 2000,
         })
-      }, 10)
+        setToken('')
+        setUserStorage('')
+      }, 100)
     }
   }, [])
 
@@ -122,6 +143,7 @@ export const AuthProvider = ({ children }) => {
     ToastAlert({
       message: 'Deslogado.',
       type: 'info',
+      autoClose: 6000,
     })
   }, [])
 
