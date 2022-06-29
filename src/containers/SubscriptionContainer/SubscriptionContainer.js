@@ -175,7 +175,7 @@ const SubscriptionContainer = () => {
           })
 
           ToastAlert({
-            message: error?.response?.data?.error?.message ?? 'Erro 404',
+            message: error?.response?.data?.error?.message ?? 'Erro interno, contate um adminstrador.',
             type: 'warning',
             autoClose: 6000,
           })
